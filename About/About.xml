@@ -9,8 +9,17 @@
     <li>1.4</li>
     <li>1.5</li>
   </supportedVersions>
-  <modDependencies />
-  <loadAfter />
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
   <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of Owlchemists mod https://steamcommunity.com/sharedfiles/filedetails/?id=2594383552
 
@@ -53,9 +62,6 @@ Unless custom specified, buildings get a list of [i]standard offsets[/i] that th
 [h1]You may also like...[/h1]
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2567126933][img]https://steamuserimages-a.akamaihd.net/ugc/1681520338007971077/4A1979E54D0804AD466AA50477EFAB45F946D3C1/?imw=5000&amp;amp;imh=5000&amp;amp;ima=fit&amp;amp;impolicy=Letterbox&amp;amp;imcolor=%23000000&amp;amp;letterbox=false[/img][/url]
 
-🦉[url=https://github.com/Owlchemist/perspective-buildings]GitHub[/url]
-[hr]
-[url=https://ko-fi.com/H2H86L8T1][img]https://cdn.ko-fi.com/cdn/kofi5.png?v=3[/img][/url]
 
 [img]https://i.imgur.com/PwoNOj4.png[/img]
 [list]
@@ -68,6 +74,8 @@ Unless custom specified, buildings get a list of [i]standard offsets[/i] that th
 [*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
 [/list] 
 
-[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/][img]https://img.shields.io/github/v/release/emipa606/PerspectiveBuildings?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: building adjustments,  graphical enhancement,  customizable buildings</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.1</modVersion>
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/][img]https://img.shields.io/github/v/release/emipa606/PerspectiveBuildings?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: building adjustments,  graphical enhancement,  customizable buildings 
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3346955193][img]https://img.shields.io/github/v/release/emipa606/PerspectiveBuildings?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: building adjustments,  graphical enhancement,  customizable buildings</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.2</modVersion>
 </ModMetaData>

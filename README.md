@@ -1,4 +1,4 @@
-# [Perspective: Buildings (Continued)]()
+# [Perspective: Buildings (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3346955193)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -44,9 +44,6 @@ Unless custom specified, buildings get a list of *standard offsets* that the adj
 
 [![Image](https://steamuserimages-a.akamaihd.net/ugc/1681520338007971077/4A1979E54D0804AD466AA50477EFAB45F946D3C1/?imw=5000&amp;imh=5000&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=false)](https://steamcommunity.com/sharedfiles/filedetails/?id=2567126933)
 
-🦉[GitHub](https://github.com/Owlchemist/perspective-buildings)
-[hr]
-[![Image](https://cdn.ko-fi.com/cdn/kofi5.png?v=3)](https://ko-fi.com/H2H86L8T1)
 
 ![Image](https://i.imgur.com/PwoNOj4.png)
 
@@ -62,4 +59,6 @@ Unless custom specified, buildings get a list of *standard offsets* that the adj
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/PerspectiveBuildings?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/) | tags: building adjustments,  graphical enhancement,  customizable buildings
+[![Image](https://img.shields.io/github/v/release/emipa606/PerspectiveBuildings?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/) | tags: building adjustments,  graphical enhancement,  customizable buildings 
+
+[![Image](https://img.shields.io/github/v/release/emipa606/PerspectiveBuildings?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3346955193) | tags: building adjustments,  graphical enhancement,  customizable buildings
