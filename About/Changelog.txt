@@ -1,5 +1,8 @@
 # Changelog for PerspectiveBuildings
 
+1.5.3 - Updated Spanish translation, thanks Ferchu
+
+
 1.5.2 - Missed harmony-dependency in the about-file
 
 
