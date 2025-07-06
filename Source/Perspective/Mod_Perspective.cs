@@ -13,13 +13,13 @@ public class Mod_Perspective : Mod
     public Mod_Perspective(ModContentPack content) : base(content)
     {
         new Harmony(Content.PackageIdPlayerFacing).PatchAll();
-        LongEventHandler.QueueLongEvent(Setup, null, false, null);
+        LongEventHandler.QueueLongEvent(setup, null, false, null);
     }
 
-    private void Setup()
+    private static void setup()
     {
         //Give standard offsets to the following defs:
-        var dd = DefDatabase<ThingDef>.AllDefs.Where(x =>
+        var buildings = DefDatabase<ThingDef>.AllDefs.Where(x =>
                 x.HasModExtension<Offsetter>() &&
                 x.GetModExtension<Offsetter>().ignore == False || //Mod extension forces inclusion?
                 x.category == ThingCategory.Building && //Is a building?
@@ -32,7 +32,7 @@ public class Mod_Perspective : Mod
                  x.GetCompProperties<CompProperties_Power>().basePowerConsumption > 0) //Isn't a power plant?
         );
 
-        foreach (var def in dd)
+        foreach (var def in buildings)
         {
             //Has a pre-defined offsetter?
             if (def.HasModExtension<Offsetter>())
@@ -45,53 +45,54 @@ public class Mod_Perspective : Mod
                     continue;
                 }
 
-                if (modX.offsetType == Offsetter.OffsetType.Eight)
+                switch (modX.offsetType)
                 {
-                    var tmp = modX.offsets.FirstOrFallback();
-                    modX.offsets =
-                    [
-                        new Vector3(tmp.x, tmp.y, tmp.z),
-                        new Vector3(0, tmp.y, tmp.z),
-                        new Vector3(-tmp.x, tmp.y, tmp.z),
-                        new Vector3(tmp.x, tmp.y, 0),
-                        new Vector3(-tmp.x, tmp.y, 0),
-                        new Vector3(tmp.x, tmp.y, -tmp.z),
-                        new Vector3(0, tmp.y, -tmp.z),
-                        new Vector3(-tmp.x, tmp.y, -tmp.z)
-                    ];
-                }
-                else if (modX.offsetType == Offsetter.OffsetType.Four)
-                {
-                    var tmp = modX.offsets.FirstOrFallback();
-                    modX.offsets =
-                    [
-                        new Vector3(0, tmp.y, tmp.z),
-                        new Vector3(0, tmp.y, -tmp.z),
-                        new Vector3(tmp.x, tmp.y, 0),
-                        new Vector3(-tmp.x, tmp.y, 0)
-                    ];
-                }
-                else if (modX.offsets == null)
-                {
-                    modX.offsets = standardOffsets;
+                    case Offsetter.OffsetType.Eight:
+                    {
+                        var tmp = modX.offsets.FirstOrFallback();
+                        modX.offsets =
+                        [
+                            new Vector3(tmp.x, tmp.y, tmp.z),
+                            new Vector3(0, tmp.y, tmp.z),
+                            new Vector3(-tmp.x, tmp.y, tmp.z),
+                            new Vector3(tmp.x, tmp.y, 0),
+                            new Vector3(-tmp.x, tmp.y, 0),
+                            new Vector3(tmp.x, tmp.y, -tmp.z),
+                            new Vector3(0, tmp.y, -tmp.z),
+                            new Vector3(-tmp.x, tmp.y, -tmp.z)
+                        ];
+                        break;
+                    }
+                    case Offsetter.OffsetType.Four:
+                    {
+                        var tmp = modX.offsets.FirstOrFallback();
+                        modX.offsets =
+                        [
+                            new Vector3(0, tmp.y, tmp.z),
+                            new Vector3(0, tmp.y, -tmp.z),
+                            new Vector3(tmp.x, tmp.y, 0),
+                            new Vector3(-tmp.x, tmp.y, 0)
+                        ];
+                        break;
+                    }
+                    default:
+                    {
+                        modX.offsets ??= standardOffsets;
+
+                        break;
+                    }
                 }
             }
             else
             {
                 //Add modX list if missing
-                if (def.modExtensions == null)
-                {
-                    def.modExtensions = [];
-                }
+                def.modExtensions ??= [];
 
                 def.modExtensions.Add(new Offsetter { offsets = standardOffsets });
             }
 
             //Add component
-            if (def.comps == null)
-            {
-                def.comps = [];
-            }
+            def.comps ??= [];
 
             def.comps.Add(new CompProperties { compClass = typeof(CompOffsetter) });
         }

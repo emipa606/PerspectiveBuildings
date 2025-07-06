@@ -8,7 +8,7 @@ using static Perspective.ResourceBank;
 namespace Perspective;
 
 [HarmonyPatch]
-internal static class Patch_SimpleUtilitiesCeiling
+internal static class CeilingUtilities_Graphic_FlickerMulti_DrawWorker
 {
     private static MethodBase target;
 

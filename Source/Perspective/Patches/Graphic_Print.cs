@@ -15,8 +15,8 @@ public static class Graphic_Print
     {
         var codes = new List<CodeInstruction>(instructions);
         var count = codes.Count;
-        var DrawPerspectiveMirror =
-            AccessTools.Method(typeof(Graphic_Print), nameof(Graphic_Print.DrawPerspectiveMirror));
+        var drawPerspectiveMirror =
+            AccessTools.Method(typeof(Graphic_Print), nameof(DrawPerspectiveMirror));
 
         for (var i = 0; i < count; ++i)
         {
@@ -28,14 +28,14 @@ public static class Graphic_Print
 
             codes.InsertRange(i + 3, new List<CodeInstruction>
             {
-                new CodeInstruction(OpCodes.Ldloca_S, 3),
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Call, typeof(Graphic_Print).GetMethod(nameof(DrawPerspectiveOffset))),
+                new(OpCodes.Ldloca_S, 3),
+                new(OpCodes.Ldarg_2),
+                new(OpCodes.Call, typeof(Graphic_Print).GetMethod(nameof(DrawPerspectiveOffset))),
 
-                new CodeInstruction(OpCodes.Ldloc_0),
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Call, DrawPerspectiveMirror),
-                new CodeInstruction(OpCodes.Stloc_0)
+                new(OpCodes.Ldloc_0),
+                new(OpCodes.Ldarg_2),
+                new(OpCodes.Call, drawPerspectiveMirror),
+                new(OpCodes.Stloc_0)
             });
             ++ResourceBank.transpilerRan;
             break;

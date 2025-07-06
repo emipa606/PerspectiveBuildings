@@ -13,7 +13,7 @@ public class CompOffsetter : ThingComp
     private Command_Action adjustGizmo, mirrorGizmo;
     public Vector3 currentOffset, cachedTrueCenter;
     public bool isOffset, isMirrored;
-    public Offsetter Props;
+    private Offsetter Props;
 
     public override void Initialize(CompProperties props)
     {
@@ -33,21 +33,21 @@ public class CompOffsetter : ThingComp
             defaultLabel = "Owl_Adjust".Translate(),
             defaultDesc = "Owl_AdjustDesc".Translate(),
             icon = iconAdjust,
-            action = SetCurrentOffset
+            action = setCurrentOffset
         };
         mirrorGizmo = new Command_Action
         {
             defaultLabel = "Owl_Mirror".Translate(),
             defaultDesc = "Owl_MirrorDesc".Translate(),
             icon = iconMirror,
-            action = SetMirroredState
+            action = setMirroredState
         };
     }
 
-    public override void PostDeSpawn(Map map)
+    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         offsetRegistry.Remove(parent.thingIDNumber);
-        base.PostDeSpawn(map);
+        base.PostDeSpawn(map, mode);
     }
 
     public override void PostExposeData()
@@ -60,15 +60,15 @@ public class CompOffsetter : ThingComp
         Scribe_Values.Look(ref isMirrored, "mirrored");
         Scribe_Values.Look(ref currentOffset, "currentOffset", new Vector3(0, 0, 0));
 
-        UpdateRegistry();
+        updateRegistry();
     }
 
-    public void UpdateRegistry()
+    private void updateRegistry()
     {
         isOffset = currentOffset != zero;
         cachedTrueCenter = parent.TrueCenter();
 
-        if (parent.def.drawerType == DrawerType.MapMeshOnly || parent.def.drawerType == DrawerType.MapMeshAndRealTime)
+        if (parent.def.drawerType is DrawerType.MapMeshOnly or DrawerType.MapMeshAndRealTime)
         {
             parent.Map?.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
         }
@@ -86,20 +86,20 @@ public class CompOffsetter : ThingComp
         }
     }
 
-    public void SetCurrentOffset()
+    private void setCurrentOffset()
     {
         SoundDefOf.Click.PlayOneShotOnCamera();
 
         var index = Props.offsets.FindIndex(x => x == currentOffset);
         currentOffset = Props.offsets.Count - 1 == index ? zero : Props.offsets[index == -1 ? 0 : ++index];
-        UpdateRegistry();
+        updateRegistry();
     }
 
-    public void SetMirroredState()
+    private void setMirroredState()
     {
         SoundDefOf.Click.PlayOneShotOnCamera();
         isMirrored ^= true;
-        UpdateRegistry();
+        updateRegistry();
     }
 
     public override IEnumerable<Gizmo> CompGetGizmosExtra()

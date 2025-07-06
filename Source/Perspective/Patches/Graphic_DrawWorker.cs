@@ -25,9 +25,9 @@ public static class Graphic_DrawWorker
 
             codes.InsertRange(i + 3, new List<CodeInstruction>
             {
-                new CodeInstruction(OpCodes.Ldarga_S, 1),
-                new CodeInstruction(OpCodes.Ldarg_S, 4),
-                new CodeInstruction(OpCodes.Call,
+                new(OpCodes.Ldarga_S, 1),
+                new(OpCodes.Ldarg_S, 4),
+                new(OpCodes.Call,
                     typeof(Graphic_Print).GetMethod(nameof(Graphic_Print.DrawPerspectiveOffset)))
             });
             ++transpilerRan;

@@ -8,5 +8,12 @@
     " graphical enhancement",
     " customizable buildings"
   ],
-  "PreviewVersion": "1.5"
+  "PreviewVersion": "1.6",
+  "Patches": true,
+  "Defs": false,
+  "Assemblies": true,
+  "LinesOfCode": 18073,
+  "LinesOfXML": 4922,
+  "CodeBaseSize": 69,
+  "LastXmlCleaning": "2025-07-06T21:47:54.5685689+02:00"
 }

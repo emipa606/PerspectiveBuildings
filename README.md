@@ -59,6 +59,4 @@ Unless custom specified, buildings get a list of *standard offsets* that the adj
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/PerspectiveBuildings?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/) | tags: building adjustments,  graphical enhancement,  customizable buildings 
-
 [![Image](https://img.shields.io/github/v/release/emipa606/PerspectiveBuildings?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3346955193) | tags: building adjustments,  graphical enhancement,  customizable buildings
