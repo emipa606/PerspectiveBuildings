@@ -6,9 +6,9 @@ namespace Perspective;
 
 //Dynamic shadows (non-static). This should probably be replaced with a transpiler one of these days...
 [HarmonyPatch(typeof(Graphic_Shadow), nameof(Graphic_Shadow.Print))]
-public class Graphic_Shadow_Print
+public static class Graphic_Shadow_Print
 {
-    private static bool Prefix(Thing thing, ShadowData ___shadowInfo, SectionLayer layer,
+    public static bool Prefix(Thing thing, ShadowData ___shadowInfo, SectionLayer layer,
         float ___GlobalShadowPosOffsetX, float ___GlobalShadowPosOffsetZ)
     {
         if (!ResourceBank.offsetRegistry.TryGetValue(thing.thingIDNumber, out var compBuffer) || !compBuffer.isOffset)

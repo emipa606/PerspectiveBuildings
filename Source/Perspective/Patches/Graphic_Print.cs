@@ -11,7 +11,7 @@ namespace Perspective;
 [HarmonyPatch(typeof(Graphic), nameof(Graphic.Print))]
 public static class Graphic_Print
 {
-    private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
         var codes = new List<CodeInstruction>(instructions);
         var count = codes.Count;

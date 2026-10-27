@@ -12,7 +12,7 @@ internal static class CeilingUtilities_Graphic_FlickerMulti_DrawWorker
 {
     private static MethodBase target;
 
-    private static bool Prepare()
+    public static bool Prepare()
     {
         var mod = LoadedModManager.RunningMods.FirstOrDefault(m => m.Name.Contains("Simple Utilities: Ceiling"));
         if (mod == null)
@@ -42,12 +42,12 @@ internal static class CeilingUtilities_Graphic_FlickerMulti_DrawWorker
         return false;
     }
 
-    private static MethodBase TargetMethod()
+    public static MethodBase TargetMethod()
     {
         return target;
     }
 
-    private static void Prefix(ref Vector3 loc, Thing thing)
+    public static void Prefix(ref Vector3 loc, Thing thing)
     {
         if (offsetRegistry.TryGetValue(thing?.thingIDNumber ?? 0, out var compBuffer))
         {

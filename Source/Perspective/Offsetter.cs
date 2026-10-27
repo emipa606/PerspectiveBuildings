@@ -22,6 +22,6 @@ public class Offsetter : DefModExtension
 
     public readonly Override ignore = Override.Normal;
     public readonly Override mirror = Override.Normal;
-    public List<Vector3> offsets;
     public OffsetType offsetType;
+    public List<Vector3> offsets;
 }

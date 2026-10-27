@@ -10,10 +10,10 @@ namespace Perspective;
 
 public class CompOffsetter : ThingComp
 {
+    private Offsetter Props;
     private Command_Action adjustGizmo, mirrorGizmo;
     public Vector3 currentOffset, cachedTrueCenter;
     public bool isOffset, isMirrored;
-    private Offsetter Props;
 
     public override void Initialize(CompProperties props)
     {
@@ -92,6 +92,7 @@ public class CompOffsetter : ThingComp
 
         var index = Props.offsets.FindIndex(x => x == currentOffset);
         currentOffset = Props.offsets.Count - 1 == index ? zero : Props.offsets[index == -1 ? 0 : ++index];
+
         updateRegistry();
     }
 
